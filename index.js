@@ -1,0 +1,1 @@
+alert('github-package-npm-demo!!');
