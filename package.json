@@ -1,10 +1,13 @@
 {
-  "name": "github-package-npm-demo",
+  "name": "@kwansik-yoo/github-package-npm-demo",
   "version": "1.0.0",
   "description": "github-package-npm-demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Test is executed...\" && exit 0"
+  },
+  "publishConfig": {
+    "@kwansik-yoo:registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
