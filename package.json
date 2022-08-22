@@ -1,6 +1,6 @@
 {
   "name": "@kwansik-yoo/github-package-npm-demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "github-package-npm-demo",
   "main": "index.js",
   "scripts": {
