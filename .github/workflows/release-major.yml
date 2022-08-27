@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    branches: 
+      - release-major
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12
+      - run: yarn
+      - run: yarn test
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn
+      - run: echo "Check latest version..." && yarn info --json > info.json
+      - run: echo "Auto versioning..." && yarn version --new-version $(echo $(node -p "require('./info.json').data.version"))
+      - run: yarn version --no-git-tag-version --major
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
