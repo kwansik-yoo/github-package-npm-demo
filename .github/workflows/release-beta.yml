@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: 12
       - run: yarn
+        env:
+          GH_READ_PACK_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: yarn test
 
   publish-gpr:
@@ -29,7 +31,11 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: yarn
+        env:
+          GH_READ_PACK_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: echo "Check latest version..." && yarn info --json > info.json
+        env:
+          GH_READ_PACK_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: echo "Auto versioning..." && yarn version --new-version $(echo $(node -p "require('./info.json').data.version"))
       - run: yarn version --no-git-tag-version --beta
       - run: yarn publish
