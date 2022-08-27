@@ -34,7 +34,7 @@ jobs:
       - run: yarn
       - run: echo "Check latest version..." && yarn info --json > info.json
       - run: echo "Auto versioning..." && yarn version --new-version $(echo $(node -p "require('./info.json').data.version"))
-      - run: yarn version --no-git-tag-version --beta
+      - run: yarn version --no-git-tag-version --prerelease
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
