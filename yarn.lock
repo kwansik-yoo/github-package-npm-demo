@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+"@kwansik-yoo/github-package-npm-demo@^1.0.1":
+  version "1.0.1"
+  resolved "https://npm.pkg.github.com/download/@kwansik-yoo/github-package-npm-demo/1.0.1/912470e73062dfbc05c222fb2bb20acada7725b6#912470e73062dfbc05c222fb2bb20acada7725b6"
+  integrity sha512-pKg4OHqmond6QjVBZ/ahs0ET046wtyDo8xREt7t6Gjq64B2vXKe49vF0VkmnhS0agkCYcjXlILoCueCPga5NiA==
